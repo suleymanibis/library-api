@@ -7,10 +7,8 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.example.libraryapi.enums.UserRole;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
-import java.util.List;
 
 @Entity
 @Getter
@@ -30,9 +28,13 @@ public class User {
             message = "Phone number must be +905xxxxxxxxx"
     )
     private String phoneNumber;
+    @NotBlank
     private String password;
+    @Builder.Default
     @Enumerated(value = EnumType.STRING)
     private UserRole role = UserRole.READER;
+    @Builder.Default
     private int tokenVersion = 0;
+    @Builder.Default
     private Instant deletedAt = null;
 }

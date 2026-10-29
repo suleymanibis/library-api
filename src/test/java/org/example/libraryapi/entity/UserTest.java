@@ -135,7 +135,7 @@ public class UserTest {
     void blankPassword_shouldFailValidation(){
         User validUser = User.builder()
                 .firstName("john")
-                .lastName("")
+                .lastName("care")
                 .email("johncare@example.com")
                 .phoneNumber("+905121231212")
                 .password("")
